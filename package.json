@@ -6,7 +6,8 @@
   "description": "Core package of XP (Profile any file)",
   "scripts": {
     "build": "bun run build.mjs",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepublish": "bun test && bun run build"
   },
   "files": [
     "dist"

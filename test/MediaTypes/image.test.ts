@@ -3,20 +3,20 @@ import { MediaTypes, PNG, JPEG } from '@';
 
 describe('JPEG/JFIF', () => {
   it('The aliases are the same object', () => {
-    expect(MediaTypes.Image.JPEG).toBe(JPEG.JFIF);
+    expect(MediaTypes.Image.JPEG).toBe(JPEG);
   });
 
   it('The schema is correct', () => {
-    expect(MediaTypes.Image.JPEG.mediatype()).toBe('image/jpeg');
+    expect(MediaTypes.Image.JPEG.mediaType()).toBe('image/jpeg');
   });
 });
 
 describe('PNG', () => {
   it('The aliases are the same object', () => {
-    expect(MediaTypes.Image.PNG).toBe(PNG.PNG);
+    expect(MediaTypes.Image.PNG).toBe(PNG);
   });
 
   it('The result of mediatype() is correct', () => {
-    expect(MediaTypes.Image.PNG.mediatype()).toBe('image/png');
+    expect(MediaTypes.Image.PNG.mediaType()).toBe('image/png');
   });
 });
