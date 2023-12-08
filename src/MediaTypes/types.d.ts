@@ -5,6 +5,8 @@ export type MediaType = {
   parameters: string[];
   subtype: string;
   type: Type;
+
+  mediatype(parameters?: Record<keyof any, any>): string;
 };
 
 export namespace MediaType {
