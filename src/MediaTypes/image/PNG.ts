@@ -1,16 +1,12 @@
-import { MediaType, deepFreeze } from '@';
+import { deepFreeze, MediaType } from '@';
 
-export const PNG = deepFreeze<MediaType<[MediaType.Addition.Magic]>>({
-  addtions: {
-    magic: [
-      {
-        buffer: new Uint8Array([
-          0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
-        ]),
-        offset: 0,
-      },
-    ],
-  },
+/**
+ * PNG - Portable Network Graphics
+ * 
+ * @link [W3C: PNG](https://www.w3.org/TR/PNG/)
+ * @link [IETF: RFC2083](https://datatracker.ietf.org/doc/html/rfc2083)
+ */
+export const PNG = deepFreeze<MediaType>({
   extensions: ['png'],
   parameters: [],
   subtype: 'png',
