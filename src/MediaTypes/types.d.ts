@@ -1,12 +1,9 @@
-import { TupleToIntersection } from '@';
-
-export type MediaType = {
+export type MediaType<Parameters extends string[] = []> = {
   extensions: string[];
-  parameters: string[];
+  parameters: Parameters;
   subtype: string;
   type: Type;
-
-  mediatype(parameters?: Record<keyof any, any>): string;
+  mediatype(parameters?: { [K in Parameters[number]]?: string }): string;
 };
 
 export namespace MediaType {

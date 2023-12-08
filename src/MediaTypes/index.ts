@@ -1,4 +1,4 @@
-import { JSON, JPEG, PNG } from '@';
+import { JPEG, JSON, PDF, PNG } from '@';
 
 /**
  * Internet Media Types (MIME Types)
@@ -13,7 +13,14 @@ export const MediaTypes = {
      *
      * @link [RFC 8259](https://datatracker.ietf.org/doc/html/rfc8259)
      */
-    JSON: JSON.JSON,
+    JSON,
+
+    /**
+     * PDF - Portable Document Format
+     *
+     * @link [RFC 8118](https://datatracker.ietf.org/doc/html/rfc8118)
+     */
+    PDF,
   },
   Image: {
     /**
@@ -21,7 +28,7 @@ export const MediaTypes = {
      *
      * @link [W3C: JPEG](https://www.w3.org/Graphics/JPEG/)
      */
-    JPEG: JPEG.JFIF,
+    JPEG,
 
     /**
      * PNG - Portable Network Graphics
@@ -29,7 +36,7 @@ export const MediaTypes = {
      * @link [W3C: PNG](https://www.w3.org/TR/PNG/)
      * @link [RFC 2083](https://datatracker.ietf.org/doc/html/rfc2083)
      */
-    PNG: PNG.PNG,
+    PNG,
   },
 };
 
