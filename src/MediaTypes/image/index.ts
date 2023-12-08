@@ -1,1 +1,1 @@
-export * from './PNG';
+export * from './png';
