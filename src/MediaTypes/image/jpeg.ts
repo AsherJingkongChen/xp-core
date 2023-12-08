@@ -6,5 +6,5 @@ export const JPEG = deepFreeze<MediaType>({
   parameters: [],
   subtype: 'jpeg',
   type: 'image',
-  mediatype: () => 'image/jpeg',
+  mediaType: () => 'image/jpeg',
 });

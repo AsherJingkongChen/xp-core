@@ -6,5 +6,5 @@ export const PDF = deepFreeze<MediaType>({
   parameters: [],
   subtype: 'pdf',
   type: 'application',
-  mediatype: () => 'application/pdf',
+  mediaType: () => 'application/pdf',
 });
