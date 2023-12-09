@@ -1,32 +1,36 @@
 {
   "name": "xp-core",
   "version": "0.0.0",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "author": {
+    "name": "AsherJingkongChen",
+    "email": "gpks556@gmail.com"
+  },
+  "bugs": "https://github.com/AsherJingkongChen/xp-core/issues",
   "description": "Core package of XP (Profile any file)",
-  "scripts": {
-    "build": "bun run build.mjs",
-    "format": "prettier --write .",
-    "prepublish": "bun test && bun run build"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "bun"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/wobsoriano/pkg-name#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wobsoriano/pkg-name.git"
-  },
-  "bugs": "https://github.com/wobsoriano/pkg-name/issues",
-  "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "devDependencies": {
     "bun-plugin-dts": "^0.2.1",
     "bun-types": "^1.0.7",
     "prettier": "^3.1.0",
     "typescript": "^5.2.2"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/AsherJingkongChen/xp-core",
+  "keywords": [
+    "bun"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsherJingkongChen/xp-core.git"
+  },
+  "scripts": {
+    "build": "bun run build.ts",
+    "format": "prettier --write .",
+    "prepublish": "bun test && bun run build"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts"
 }

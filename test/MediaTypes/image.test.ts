@@ -6,7 +6,7 @@ describe('JPEG/JFIF', () => {
     expect(MediaTypes.Image.JPEG).toBe(JPEG);
   });
 
-  it('The schema is correct', () => {
+  it('The results of mediatype() are correct', () => {
     expect(MediaTypes.Image.JPEG.mediaType()).toBe('image/jpeg');
   });
 });
@@ -16,7 +16,7 @@ describe('PNG', () => {
     expect(MediaTypes.Image.PNG).toBe(PNG);
   });
 
-  it('The result of mediatype() is correct', () => {
+  it('The results of mediatype() are correct', () => {
     expect(MediaTypes.Image.PNG.mediaType()).toBe('image/png');
   });
 });

@@ -2,7 +2,7 @@ export type MediaType<Parameters extends string[] = []> = {
   extensions: string[];
   parameters: Parameters;
   subtype: string;
-  type: Type;
+  type: MediaType.Type;
   mediaType: (parameters?: { [K in Parameters[number]]?: string }) => string;
 };
 
