@@ -30,11 +30,11 @@ jobs:
           bun-version: latest
 
       - id: install-deps
-        name: Install dependencies
+        name: Install Dependencies
         run: |
           bun install
 
-      - id: test
-        name: Run test
+      - id: all-in-one-check
+        name: All-In-One Check
         run: |
-          bun test
+          bun prepublish
