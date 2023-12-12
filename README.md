@@ -1,26 +1,51 @@
-# bun starter
+# xp-core (Core package of XP)
 
-## Getting Started
+## What is it for?
 
-Click the [Use this template](https://github.com/wobsoriano/bun-lib-starter/generate) button to create a new repository with the contents starter.
+With XP Core, you can develop applications to preview any file.
 
-OR
+## Let's Setup the Project
 
-Run `bun create wobsoriano/bun-lib-starter ./my-lib`.
+> This section is for contributors and developers only
 
-## Setup
+### Recommended IDE Setup for you
 
-```bash
-# install dependencies
-bun install
+[VSCode](https://code.visualstudio.com/)
 
-# test the app
-bun test
+### Install Dependencies
 
-# build the app, available under dist
-bun run build
+```sh
+npm install
 ```
 
-## License
+### Run Interactive Tests with [Vitest](https://vitest.dev/)
 
-MIT
+```sh
+npm run dev:test
+```
+
+### Format with [Prettier](https://prettier.io/)
+
+```sh
+npm run format
+```
+
+### Run All Tests
+
+```sh
+npm run test
+```
+
+### Compile and Bundle for Your Deployment
+
+```sh
+npm run build
+```
+
+### The Convenient Way to Do All of the Above
+
+```sh
+npm run prepublish
+```
+
+**Note:** The command should always be run before a release commit or a pull request.
