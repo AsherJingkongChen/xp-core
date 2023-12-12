@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import { MediaTypes, JSON, PDF } from '@';
 
 describe('JSON', () => {
@@ -7,7 +7,9 @@ describe('JSON', () => {
   });
 
   it('The results of mediatype() are correct', () => {
-    expect(MediaTypes.Application.JSON.mediaType()).toBe('application/json');
+    expect(MediaTypes.Application.JSON.mediaType()).toBe(
+      'application/json',
+    );
   });
 });
 

@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'bun:test';
-import { MediaTypes, PNG, JPEG } from '@';
+import { describe, expect, it } from 'vitest';
+import { MediaTypes, JPEG, PNG } from '@';
 
 describe('JPEG/JFIF', () => {
   it('The aliases are the same object', () => {

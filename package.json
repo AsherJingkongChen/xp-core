@@ -8,10 +8,18 @@
   "bugs": "https://github.com/AsherJingkongChen/xp-core/issues",
   "description": "Core package of XP (Profile any file)",
   "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/jsdom": "^21.1.6",
+    "@types/node": "^18.19.2",
     "bun-plugin-dts": "^0.2.1",
     "bun-types": "^1.0.7",
+    "jsdom": "^23.0.1",
+    "npm-run-all2": "^6.1.1",
     "prettier": "^3.1.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vite": "^5.0.5",
+    "vite-plugin-dts": "^3.6.4",
+    "vitest": "^1.0.1"
   },
   "files": [
     "dist"
@@ -24,9 +32,14 @@
     "url": "git+https://github.com/AsherJingkongChen/xp-core.git"
   },
   "scripts": {
-    "build": "bun run build.ts",
+    "build": "run-p type-check build-only",
+    "build-only": "vite build",
+    "dev:test": "vitest",
     "format": "prettier --write .",
-    "prepublish": "bun test && bun run build"
+    "prepublish": "run-s format build test",
+    "test": "run-p test:unit",
+    "test:unit": "vitest --run",
+    "type-check": "tsc --build --force"
   },
   "type": "module",
   "types": "dist/index.d.ts"

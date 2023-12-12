@@ -8,4 +8,3 @@ export const JSON = deepFreeze<MediaType>({
   type: 'application',
   mediaType: () => 'application/json',
 });
-
