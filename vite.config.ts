@@ -1,20 +1,24 @@
 import { fileURLToPath, URL } from 'node:url';
-
-import { defineConfig } from 'vite';
+import { defineConfig, UserConfigFn } from 'vite';
 import dts from 'vite-plugin-dts';
 
-// https://vitejs.dev/config/
-export default defineConfig({
+const path = 'dist';
+
+export const config: UserConfigFn = (env) => ({
+  base: '/',
   build: {
     assetsInlineLimit: 0,
+    outDir: path,
     lib: {
       entry: './src/index.ts',
       fileName: 'index',
+      formats: ['es'],
       name: 'XPCore',
     },
+    minify: 'esbuild',
   },
   esbuild: {
-    drop: ['debugger'],
+    drop: env.mode === 'production' ? ['console', 'debugger'] : undefined,
   },
   plugins: [dts()],
   resolve: {
@@ -23,3 +27,5 @@ export default defineConfig({
     },
   },
 });
+
+export default defineConfig(config);

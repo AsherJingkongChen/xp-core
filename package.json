@@ -11,15 +11,14 @@
     "@tsconfig/node18": "^18.2.2",
     "@types/jsdom": "^21.1.6",
     "@types/node": "^18.19.2",
-    "bun-plugin-dts": "^0.2.1",
-    "bun-types": "^1.0.7",
+    "@vitest/coverage-v8": "^1.0.4",
     "jsdom": "^23.0.1",
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.1.0",
     "typescript": "^5.2.2",
-    "vite": "^5.0.5",
+    "vite": "^5.0.8",
     "vite-plugin-dts": "^3.6.4",
-    "vitest": "^1.0.1"
+    "vitest": "^1.0.4"
   },
   "files": [
     "dist"
@@ -34,7 +33,7 @@
   "scripts": {
     "build": "run-p type-check build-only",
     "build-only": "vite build",
-    "dev:test": "vitest",
+    "dev:test": "vitest --coverage",
     "format": "prettier --write .",
     "prepublish": "run-s format && run-p build test",
     "test": "run-p test:unit",

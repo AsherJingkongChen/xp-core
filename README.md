@@ -24,6 +24,8 @@ npm install
 npm run dev:test
 ```
 
+**Note:** The command will generate coverage reports in the `coverage` folder.
+
 ### Format with [Prettier](https://prettier.io/)
 
 ```sh
