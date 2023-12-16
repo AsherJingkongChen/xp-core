@@ -18,10 +18,10 @@ With XP Core, you can develop applications to preview any file.
 npm install
 ```
 
-### Run Interactive Tests with [Vitest](https://vitest.dev/)
+### Run Interactive Tests to Boost the Development with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run dev:test
+npm run dev
 ```
 
 **Note:** The command will generate coverage reports in the `coverage` folder.
@@ -32,16 +32,16 @@ npm run dev:test
 npm run format
 ```
 
-### Run All Tests
-
-```sh
-npm run test
-```
-
 ### Compile and Bundle for Your Deployment
 
 ```sh
 npm run build
+```
+
+### Run All Tests
+
+```sh
+npm run test
 ```
 
 ### The Convenient Way to Do All of the Above
@@ -50,4 +50,4 @@ npm run build
 npm run prepublish
 ```
 
-**Note:** The command should always be run before a release commit or a pull request.
+**Note:** The command should always be run successfully before a release commit or a pull request. Also, it's better to run integration tests before merge.

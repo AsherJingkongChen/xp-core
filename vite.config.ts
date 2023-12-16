@@ -1,31 +1,51 @@
-import { fileURLToPath, URL } from 'node:url';
-import { defineConfig, UserConfigFn } from 'vite';
+import { join, resolve } from 'node:path';
+import { ConfigEnv, defineConfig, UserConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
-const path = 'dist';
-
-export const config: UserConfigFn = (env) => ({
-  base: '/',
-  build: {
-    assetsInlineLimit: 0,
-    outDir: path,
-    lib: {
-      entry: './src/index.ts',
-      fileName: 'index',
-      formats: ['es'],
-      name: 'XPCore',
+export const customConfigFn = ({
+  dist,
+  env,
+  root,
+}: {
+  dist: string;
+  env: ConfigEnv;
+  root: string;
+}): UserConfig => {
+  const outDir = join(dist, root);
+  return {
+    base: join(root, '/'),
+    build: {
+      assetsInlineLimit: 0,
+      lib: {
+        entry: ['src/index.ts'],
+        fileName: 'index',
+        formats: ['es'],
+        name: 'XPCore',
+      },
+      outDir,
     },
-    minify: 'esbuild',
-  },
-  esbuild: {
-    drop: env.mode === 'production' ? ['console', 'debugger'] : undefined,
-  },
-  plugins: [dts()],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    esbuild: {
+      drop:
+        env.mode === 'production' ? ['console', 'debugger'] : undefined,
     },
-  },
-});
+    plugins: [
+      dts({
+        include: 'src',
+        entryRoot: 'src',
+      }),
+    ],
+    resolve: {
+      alias: {
+        '@': resolve('src'),
+      },
+    },
+  };
+};
 
-export default defineConfig(config);
+export default defineConfig((env) =>
+  customConfigFn({
+    dist: 'dist',
+    env,
+    root: '/',
+  }),
+);
