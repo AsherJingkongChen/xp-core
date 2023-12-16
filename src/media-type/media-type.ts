@@ -56,35 +56,30 @@ class MediaTypeSealed implements MediaTypeLike {
  * @link [RFC 2231](https://datatracker.ietf.org/doc/html/rfc2231)
  * @link [RFC 6838](https://datatracker.ietf.org/doc/html/rfc6838)
  */
-export class MediaType {
-  private static readonly registeredTypes: Map<string, MediaTypeSealed> =
-    new Map();
+export type MediaType = MediaTypeSealed;
+export namespace MediaType {
+  const registeredTypes = new Map<string, MediaTypeSealed>();
 
   /**
    * @returns If the media type is already registered, the existing instance is returned.
    */
-  public static register(options: MediaTypeOptions): MediaTypeSealed {
+  export function register(options: MediaTypeOptions): MediaTypeSealed {
     const newMediaType = deepFreeze(new MediaTypeSealed(options));
-    const oldMediaType = this.registeredTypes.get(newMediaType.mediaType);
+    const oldMediaType = registeredTypes.get(newMediaType.mediaType);
     if (oldMediaType) {
       return oldMediaType;
     } else {
-      this.registeredTypes.set(newMediaType.mediaType, newMediaType);
+      registeredTypes.set(newMediaType.mediaType, newMediaType);
       return newMediaType;
     }
   }
   /**
    * @returns If the media type is already registered, return true. Otherwise, return false.
    */
-  public static isAvailable(value: MediaTypeLike): boolean {
+  export function isAvailable(value: MediaTypeLike): boolean {
     return (
       value instanceof MediaTypeSealed &&
-      this.registeredTypes.has(value.mediaType)
+      registeredTypes.has(value.mediaType)
     );
   }
-  public static [Symbol.hasInstance](value: any): boolean {
-    return this.isAvailable(value);
-  }
-
-  private constructor() {}
 }

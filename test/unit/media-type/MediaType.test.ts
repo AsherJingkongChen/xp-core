@@ -1,21 +1,8 @@
-import { describe, expect, it, beforeAll } from 'vitest';
-import setup, { MediaType, MediaTypeError } from '@';
-
-beforeAll(() => {
-  setup();
-});
+import { describe, expect, it } from 'vitest';
+import { MediaType, MediaTypeError } from '@';
 
 describe('MediaType', () => {
-  it('can not create an instance with new', () => {
-    const instance = new (MediaType as any)();
-    const { name } = instance.constructor;
-    expect(name).toBe('MediaType');
-    expect(instance).not.toBeInstanceOf(MediaType);
-  });
-});
-
-describe('MediaType.register', () => {
-  it('disallows an invalid type', () => {
+  it('can not register with an invalid type', () => {
     const truthyFailure = () => {
       MediaType.register({
         subtype: 'unknown',
@@ -40,7 +27,7 @@ describe('MediaType.register', () => {
     expect(exampleFailure).toThrow(MediaTypeError);
   });
 
-  it('disallows an invalid subtype', () => {
+  it('can not register with an invalid subtype', () => {
     const emptyFailure = () => {
       MediaType.register({
         subtype: '',
@@ -64,14 +51,20 @@ describe('MediaType.register', () => {
     expect(carelessNullyFailure).toThrow(MediaTypeError);
     expect(exampleFailure).toThrow(MediaTypeError);
   });
-});
 
-describe('MediaType.isAvailable', () => {
-  it('returns true for a newly registered media type', () => {
+  it('validates a newly registered media type with .isAvailable()', () => {
+    const mediaType = MediaType.register({
+      subtype: 'vnd.xp.test',
+      type: 'application',
+    });
+    expect(MediaType.isAvailable(mediaType)).toBe(true);
+  });
+
+  it('.mediaType is an alias of toString()', () => {
     const mediaType = MediaType.register({
       subtype: 'pdf',
       type: 'application',
     });
-    expect(MediaType.isAvailable(mediaType)).toBe(true);
+    expect(mediaType.toString()).toBe('application/pdf');
   });
 });
