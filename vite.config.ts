@@ -39,6 +39,9 @@ export const customConfigFn = ({
         '@': resolve('src'),
       },
     },
+    test: {
+      include: ['test/unit/**/*.test.ts'],
+    },
   };
 };
 
